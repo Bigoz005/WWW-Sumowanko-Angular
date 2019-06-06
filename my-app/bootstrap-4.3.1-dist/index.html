@@ -1,0 +1,87 @@
+<!DOCTYPE HTML>
+<html> 
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+  <title>Ng Sample</title> 
+
+<!-- Importuj jQuery -->
+  <script type="text/javascript"   
+  src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+<!-- Importuj AngularJS -->
+  <script type="text/javascript" 
+  src="https://ajax.googleapis.com/ajax/libs/angularjs/1.1.5/angular.min.js"></script>
+
+<!-- Importuj Booststrap --> 
+  <link href="//netdna.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">      
+  <script src="//netdna.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script> 
+
+<!-- Importuj kod aplikacji --> 
+  <script type="text/javascript" src="js/app.js"></script> 
+  <link href="css/app.css" rel="stylesheet" type="text/css"> 
+</head>
+
+<body>    <h1>Welcome to my Ng Sample!</h1> 
+<!-- ten blok definiuje sekcję aplikacji userApp --> 
+<div ng-app="userApp">
+
+<!-- Ten blok definiuje kontroler UserCtrl -->
+<div ng-controller="UserCtrl"> 
+<table class="table table-bordered"> 
+<thead>
+<th>Name</th>
+<th>Address</th>
+<th>Phone</th>
+<th></th>
+<th ng-if="users.length >0"></th>          
+</thead>
+<!-- prezentacja zawartości modelu w każdym wierszu osobny obiekt użytkownika -->
+<tbody ng-repeat="user in users" ng-switch on="user.state">
+
+<!-- Szablon edycji użytkownika pokazywany warunkowo --> 
+<tr ng-switch-when="edit"> 
+<td>
+    <input type="text" class="form-control" ng-model="user.name" />
+</td>
+<td>
+    <input type="text" class="form-control" ng-model="user.address" />
+</td> 
+<td>
+    <input type="text" class="form-control" ng-model="user.phone_number" />   
+</td>              
+<td>
+    <input type="button" class="btn btn-success" ng-click="saveUser(user);" value="Save" />
+</td>              
+<td> <input type="button" class="btn btn-danger" ng-click="cancelEdit(user);" value="Cancel" />
+</td>  
+</tr>
+<!-- Szablon wyświetlania użytkownika -->           
+<tr ng-switch-default>
+<td>{{user.name}} </td>
+<td>{{user.address}}</td>
+<td>{{user.phone_number}}</td>
+<td><input type="button" class="btn btn-primary" ng-click="editUser(user);" value="Edit" /></td>              
+<td><input type="button" class="btn btn-danger" ng-click="deleteUser(user);" value="Delete"/></td>
+</tr>
+<!-- Formularz dodawania rekordu -->          
+<tbody>           
+<tr>
+<td>
+  <input type="text" class="form-control" ng-model="newUser.name" />                       
+</td>
+<td>
+  <input type="text" class="form-control" ng-model="newUser.address" />                   
+</td>
+<td>
+  <input type="text" class="form-control" ng-model="newUser.phone_number" />     
+</td>
+<td><input type="button" class="btn btn-primary" ng-click="addUser();" value="Add"/>
+
+</td>
+</tr> 
+</tbody> 
+</table>
+</div> <!-- Koniec ng-controller -->
+</div>  <!-- Koniec ng-app -->
+</body>
+</html>

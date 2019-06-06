@@ -1,0 +1,29 @@
+[
+  {
+    "index":0,
+    "name":"Michał Nawrot",
+    "index_number":209405,
+    "js":60,
+    "jq":60,
+    "php":50,
+    "$$hashKey":"001"
+  },
+  {
+    "index":1,
+    "name":"Adam Małysz",
+    "index_number":100000,
+    "js":42,
+    "jq":70,
+    "php":40,
+    "$$hashKey":"002"
+  },
+    {
+    "index":2,
+    "name":"Bilbo Baggins",
+    "index_number":999999,
+    "js":100,
+    "jq":100,
+    "php":100,
+    "$$hashKey":"003"
+  }
+]

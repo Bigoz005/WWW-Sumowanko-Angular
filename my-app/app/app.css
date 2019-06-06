@@ -1,0 +1,43 @@
+
+.table-bordered{
+  text-align: center;
+}
+
+.col-md-1{
+  text-align: center;
+}
+
+th{
+  text-align: center;
+}
+
+td{
+  text-align: center;
+  background-color: #a7ffc9bd;
+}
+
+.btn-primary{
+  text-align: center;
+}
+
+thead{
+  background-color: #dddddd49;
+}
+
+tfoot{
+  background-color: #f5f5f5;  
+  border-top: 1px solid black;
+  border-bottom: 1pt solid black;
+  outline-color: black;
+  outline-offset: -2px;
+  outline-style: solid;
+}
+
+tfoot th:nth-child(odd){
+  background-color: #f5f5f5;  
+  outline-color: rgb(141, 134, 134);
+  outline-width: 1px;
+  outline-style: dashed;
+}
+
+

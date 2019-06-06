@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <title>Sumowanko</title>
+
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.1.5/angular.min.js"></script>
+  <script type="text/javascript" src="app.js"></script>
+  <link href="app.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+  <div ng-app="userApp">
+
+    <div ng-controller="Controler">
+      <table class="table table-bordered">
+        <thead>
+          <th class="col-sm-3">Imię i Nazwisko</th>
+          <th class="col-sm-3">Numer indeksu</th>
+          <th class="col-sm-2">JavaScript</th>
+          <th class="col-sm-2">jQuery</th>
+          <th class="col-sm-2">PHP</th>
+          <th class="col-sm-3">Suma</th>
+          <th class="col-sm-2">Operacja</th>
+        </thead>
+
+        <tbody>
+          <tr ng-repeat="user in users" ng-switch on="user.state">
+            <td contenteditable="true" class="single-line" ng-model="user.name">{{user.name}} </td>
+            <td contenteditable="true" class="single-line" ng-model="user.index_number" pattern="[1-9][0-9]{5}" required>
+              {{user.index_number}}</td>
+            <td contenteditable="true" class="single-line" ng-model="user.js">{{user.js}}</td>
+            <td contenteditable="true" class="single-line" ng-model="user.jq">{{user.jq}}</td>
+            <td contenteditable="true" class="single-line" ng-model="user.php">{{user.php}}</td>
+            <td contenteditable="false" class="single-line"ng-model="user.sum">{{Sum(user)}}</td>
+            <td><button type="button" class="btn btn-danger" ng-click="deleteUser(user)">Usuń</button></td>
+          </tr>
+        </tbody>
+
+        <tfoot>
+          <tr>
+            <th>-</th>
+            <th>-</th>
+            <th>{{SumJs()}}</th>
+            <th>{{SumJQ()}}</th>
+            <th>{{SumPhp()}}</th>
+            <th>{{TotalSum()}}</th>
+            <th><button type="button" class="btn btn-primary" ng-click="addUser()">Dodaj</button></th>
+          </tr>
+        </tfoot>
+
+      </table>
+    </div>
+  </div>
+</body>
+
+</html>
