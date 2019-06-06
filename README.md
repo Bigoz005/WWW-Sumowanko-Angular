@@ -1,1 +1,1 @@
-# WWW-Sumowanko-Angular
+# WWW-Sumowanko-AngularJS
